@@ -26,25 +26,29 @@ while(randNum):
 wordList.close()
 word = word[:-1] # THIS REMOVES THE NEWLINE FROM THE STRING
 
-#creates an variable with an empty value
+#creates an empty variable to store guesses in.
 guesses = ''	
-#word = "secret"
-turnCount = 1	
+turnCount = 1	# turn starts as one
 
-for char in word:
+for char in word: # print out the starting board
 	print "_",
 
 while(1):
-	
 	while turnCount <= 8:                       
-    		# ask the user go guess a character
     		guess = raw_input("guess a character: ")
+		
+		#check if they want to exit
+		if(guess == "exit")
+			print "Exiting..."
+			exit()
+
 		guessLength = len(guess)
 		# check if already guessed
 		if guess in guesses:
 			print "Already guessed", guess + "!"
 			continue;
 
+		#check if they are trying to guess the whole word
 		if len(word) == guessLength:
 			if word == guess:
 				print "You won!"
@@ -52,15 +56,11 @@ while(1):
                         	print "let's play again, " + name
                         	break
 		else: # if the length is not equal to the word
-			if guessLength > 1: # but the length is greater than 1
+			if guessLength > 1: # AND the length is greater than 1
 				print "Please only enter 1 character OR guess the full word!"
 				continue
-			guesses += guess  #Concatenate the user's guess
-   		
-			
-    		if(guess == "exit"):
-			print "Exiting..."
-			exit()
+			guesses += guess  #Concatenate the user's guess to history
+  
     		if guess not in word:  
         		turnCount += 1        
         		print "\nWrong"
@@ -69,19 +69,20 @@ while(1):
 				print "You're out of guesses!"
 				print "The word was \"" + word + "\"" 
 				break
-			elif (8 - (turnCount - 1)) == 1:
+			elif (8 - (turnCount - 1)) == 1: # grammar :}
 				print "You have ", (8 - (turnCount - 1)), " more guess\n" 
  			else:
 				print "You have ", (8 - (turnCount - 1)), " more guesses\n"
 			
-        	# if the turns are equal to zero
+        	# if the turns are equal to zero..
         	if turnCount == 0:
             		print "You Lose"
 			time.sleep(1)
 			print "let's play again, " + name
 		
     		failCount = 0
-    		# for every character in secret_word
+
+    		# for every character in word, see if they got all the letters
     		for char in word:
         		if char in guesses:
             			print char,  # comma = space, rather than newline
@@ -104,7 +105,7 @@ while(1):
 		word = wordList.readline()
 		randNum -= 1
 	wordList.close()
-	word = word[:-1]
+	word = word[:-1] # removes the newline character :)
 	turnCount = 1 #reset turn count
 	guesses = '' #clear guesses
 	for char in word:
