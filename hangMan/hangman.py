@@ -38,7 +38,7 @@ while(1):
     		guess = raw_input("guess a character: ")
 		
 		#check if they want to exit
-		if(guess == "exit")
+		if(guess == "exit"):
 			print "Exiting..."
 			exit()
 
