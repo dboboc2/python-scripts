@@ -16,7 +16,7 @@ time.sleep(0.5)
 
 #Now we randomly grab a word from a list of ~5.4k words.
 # using a randomly generated number between 1 & 5461
-wordList = open('10kwords.txt', 'r')
+wordList = open('5kwords.txt', 'r')
 randNum = int(random.randrange(1, 5461)) # generates random line number
 
 # this loop will read through the list, EX: if randNum is 3, it will read 3 lines.
@@ -100,7 +100,7 @@ while(1):
 	time.sleep(0.5)
 	randNum = int(random.randrange(1, 5461)) # generates random line number                                                                                                                   # this loop will read through the list, EX: if randNum is 3, it will read 3 lines
 	# but first, reopen the file (resetting the walker)
-	wordList = open('10kwords.txt', 'r')
+	wordList = open('5kwords.txt', 'r')
 	while(randNum):
 		word = wordList.readline()
 		randNum -= 1

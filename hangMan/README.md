@@ -1,1 +1,1 @@
-# Simple hangman game which chooses from a list of ~5k words.
+# Simple hangman game which randomly chooses words from a list of ~5k words.
