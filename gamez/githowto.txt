@@ -1,0 +1,6 @@
+echo "# python-scripts" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/dboboc2/python-scripts.git
+git push -u origin master
